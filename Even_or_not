@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, v1, k = 0, i;
+    scanf ("%d", &n);
+    int arr1[n], arr2[n];
+    
+    for (i = 0; i < n; i++){
+        scanf ("%d", &v1);
+        arr1[i] = v1 - 1;
+    }
+    
+    for (i = 0; i < n; i++){
+        arr2[arr1[i]] = i;
+    }
+    
+    for (i = 0; i < n; i++){
+        if (arr1[i] != i){
+            arr1[arr2[i]] =  arr1[i];
+            arr2[arr1[i]] =  arr2[i];
+            arr1[i] = i;
+            arr2[i] = i;
+            k++;
+        }
+    }
+    
+    printf ("%d ", k);
+
+    return 0;
+}
